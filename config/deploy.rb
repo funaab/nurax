@@ -29,6 +29,9 @@ append :linked_files, "config/analytics.yml"
 append :linked_files, "config/database.yml"
 append :linked_files, "config/secrets.yml"
 append :linked_files, "config/role_map.yml"
+append :linked_files, "config/initializers/hyrax.rb"
+append :linked_files, "config/initializers/devise.rb"
+append :linked_files, "config/initializers/mailboxer.rb"
 append :linked_files, ".env.production"
 
 # Default value for linked_dirs is []
