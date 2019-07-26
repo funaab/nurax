@@ -2,7 +2,7 @@
 lock "3.9.0"
 
 set :application, "nurax"
-set :repo_url, "https://github.com/curationexperts/nurax.git"
+set :repo_url, "https://github.com/funaab/nurax.git"
 set :deploy_to, '/opt/nurax'
 set :rails_env, 'production'
 set :ssh_options, keys: ['nurax-dev-deploy_rsa'] if File.exist?('nurax-dev-deploy_rsa')
@@ -28,6 +28,7 @@ append :linked_files, "config/analytics.yml"
 # append :linked_files, "config/browse_everything_providers.yml"
 append :linked_files, "config/database.yml"
 append :linked_files, "config/secrets.yml"
+append :linked_files, "config/role_map.yml"
 append :linked_files, ".env.production"
 
 # Default value for linked_dirs is []
