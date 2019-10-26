@@ -1,79 +1,9 @@
 development:
   admin:
-    - mjgiarlo@stanford.edu
-    - jrudder@email.unc.edu
-    - steve.vantuyl@oregonstate.edu
-    - chris-diaz@northwestern.edu
-    - shlake@virginia.edu
-    - hparekh@nd.edu
-    - gamontoya@ucsd.edu
-    - rkati@email.unc.edu
-    - jrc88@cornell.edu
-    - elr37@cornell.edu
-    - bess@curationexperts.com
-    - mark@curationexperts.com
-    - tom@curationexperts.com
-    - jamie@curationexperts.com
-    - valerie@curationexperts.com
-    - cjcolvar@indiana.edu
-    - brian.mcbride@utah.edu
-    - kmusio@artic.edu
-    - johannes.frenzel@rub.de
-    - eporter@emory.edu
-    - naw4t@virginia.edu
-    - saidulla@iu.edu
-    - adam.arling@northwestern.edu
-    - moira.downey@duke.edu
-    - nikdragovic@gmail.com
-    - lrobins5@nd.edu
-    - kallen2@library.ucla.edu
-    - rgjoshe@csufresno.edu
-    - mutugi.gathuri@gmail.com
-    - srsridh@iu.edu
-    - cam156@psu.edu
-    - karen.didrickson@northwestern.edu
-    - morganem@email.unc.edu
-    - ebrassel@email.unc.edu
-    - sarah.imholt@oregonstate.edu
+    - josh.gum@oregonstate.edu
 production:
   admin:
-    - mjgiarlo@stanford.edu
-    - jrudder@email.unc.edu
-    - steve.vantuyl@oregonstate.edu
-    - chris-diaz@northwestern.edu
-    - shlake@virginia.edu
-    - hparekh@nd.edu
-    - gamontoya@ucsd.edu
-    - rkati@email.unc.edu
-    - jrc88@cornell.edu
-    - elr37@cornell.edu
-    - bess@curationexperts.com
-    - mark@curationexperts.com
-    - tom@curationexperts.com
-    - jamie@curationexperts.com
-    - valerie@curationexperts.com
-    - cjcolvar@indiana.edu
-    - brian.mcbride@utah.edu
-    - kmusio@artic.edu
-    - johannes.frenzel@rub.de
-    - eporter@emory.edu
-    - naw4t@virginia.edu
-    - saidulla@iu.edu
-    - adam.arling@northwestern.edu
-    - moira.downey@duke.edu
-    - nikdragovic@gmail.com
-    - lrobins5@nd.edu
-    - kallen2@library.ucla.edu
-    - mcwhitak@iu.edu
-    - rgjoshe@csufresno.edu
-    - mutugi.gathuri@gmail.com
-    - srsridh@iu.edu
-    - cam156@psu.edu
-    - karen.didrickson@northwestern.edu
-    - morganem@email.unc.edu
-    - ebrassel@email.unc.edu
-    - sarah.imholt@oregonstate.edu
-    - jlhardes@iu.edu
+    - josh.gum@oregonstate.edu
 test:
   archivist:
     - archivist1@example.com
