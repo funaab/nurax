@@ -32,3 +32,4 @@
 /.ruby-*
 
 .env.development
+fits.log
