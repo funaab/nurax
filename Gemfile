@@ -5,11 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "actionview", ">= 5.1.6.2"
 gem 'dotenv-rails'
 gem 'honeybadger', '~> 3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use postgresql on the sandbox
@@ -24,7 +23,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem "rubyzip", ">= 1.2.2"
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -44,6 +42,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-sidekiq'
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem 'solr_wrapper', '>= 0.3'
   gem 'fcrepo_wrapper'
   gem 'rspec-rails'
@@ -52,7 +51,7 @@ end
 group :test do
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
-  gem 'factory_bot_rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -69,8 +68,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 #gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'hyrax', github: 'samvera/hyrax', branch: 'master'
-# gem 'hyrax', '2.1.0'
+# gem 'hyrax', github: 'samvera/hyrax', branch: 'master'
+gem 'hyrax', '2.5.1'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-guests', '~> 0.6'
@@ -79,4 +78,4 @@ gem 'jquery-rails'
 gem 'clamav'
 gem 'sidekiq'
 
-gem 'riiif', '~> 2.0'
+gem 'riiif', '~> 1.1'
