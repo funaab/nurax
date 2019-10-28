@@ -1,3 +1,5 @@
+require 'solrizer'
+
 # frozen_string_literal: true
 class SolrDocument
   include Blacklight::Solr::Document
@@ -22,7 +24,28 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
 
-  # Do content negotiation for AF models. 
+  # Do content negotiation for AF models.
 
   use_extension( Hydra::ContentNegotiation )
+
+  def self.solrized_methods(property_names)
+    property_names.each do |property_name|
+      define_method property_name.to_sym do
+        values = self[Solrizer.solr_name(property_name)]
+        if values.respond_to?(:each)
+          values.reject(&:blank?)
+        else
+          values
+        end
+      end
+    end
+  end
+
+  solrized_methods %w[
+    advisor_committee
+    degree_level
+    graduation_date
+    file_format
+    file_type
+  ]
 end
