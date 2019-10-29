@@ -1,10 +1,20 @@
 Hyrax.config do |config|
-  # Injected via `rails g hyrax:work GenericWork`
-  config.register_curation_concern :generic_work
-  # Injected via `rails g hyrax:work Image`
-  config.register_curation_concern :image
   # Injected via `rails g hyrax:work Etd`
   config.register_curation_concern :etd
+  # Injected via `rails g hyrax:work Dataset`
+  config.register_curation_concern :dataset
+  # Injected via `rails g hyrax:work Document`
+  config.register_curation_concern :document
+  # Injected via `rails g hyrax:work Note`
+  config.register_curation_concern :note
+  # Injected via `rails g hyrax:work Learning`
+  config.register_curation_concern :learning
+  # Injected via `rails g hyrax:work ConferenceProceeding`
+  config.register_curation_concern :conference_proceeding
+  # Injected via `rails g hyrax:work Monograph`
+  config.register_curation_concern :monograph
+  # Injected via `rails g hyrax:work Article`
+  config.register_curation_concern :article
   # Register roles that are expected by your implementation.
   # @see Hyrax::RoleRegistry for additional details.
   # @note there are magical roles as defined in Hyrax::RoleRegistry::MAGIC_ROLES
