@@ -1,8 +1,8 @@
 en:
   hyrax:
     icons:
-      etd:     'fa fa-file-text-o'
+      etd: 'fa fa-file-text-o'
     select_type:
       etd:
-        description:        "Etd works"
-        name:               "Etd"
+        description: 'Thesis and Dissertations'
+        name: 'Thesis and Dissertation'

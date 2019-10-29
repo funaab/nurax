@@ -1,8 +1,8 @@
 en:
   hyrax:
     icons:
-      note:     'fa fa-file-text-o'
+      note: 'fa fa-file-text-o'
     select_type:
       note:
-        description:        "Note works"
-        name:               "Note"
+        description: 'Course Notes'
+        name: 'Course Note'

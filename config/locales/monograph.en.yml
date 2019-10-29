@@ -1,8 +1,8 @@
 en:
   hyrax:
     icons:
-      monograph:     'fa fa-file-text-o'
+      monograph: 'fa fa-file-text-o'
     select_type:
       monograph:
-        description:        "Monograph works"
-        name:               "Monograph"
+        description: 'Monographs'
+        name: 'Monograph'

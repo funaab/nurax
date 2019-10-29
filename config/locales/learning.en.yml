@@ -1,8 +1,8 @@
 en:
   hyrax:
     icons:
-      learning:     'fa fa-file-text-o'
+      learning: 'fa fa-file-text-o'
     select_type:
       learning:
-        description:        "Learning works"
-        name:               "Learning"
+        description: 'Learning Objects'
+        name: 'Learning Object'
