@@ -1,0 +1,8 @@
+fr:
+  hyrax:
+    icons:
+      monograph:     'fa fa-file-text-o'
+    select_type:
+      monograph:
+        description:        "Monograph œuvres"
+        name:               "Monograph"

@@ -1,0 +1,8 @@
+de:
+  hyrax:
+    icons:
+      note:     'fa fa-file-text-o'
+    select_type:
+      note:
+        description:        "Note Werke"
+        name:               "Note"

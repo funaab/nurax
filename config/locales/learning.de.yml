@@ -1,0 +1,8 @@
+de:
+  hyrax:
+    icons:
+      learning:     'fa fa-file-text-o'
+    select_type:
+      learning:
+        description:        "Learning Werke"
+        name:               "Learning"

@@ -45,12 +45,16 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name("resource_type", :facetable), label: "Resource Type", limit: 5
     config.add_facet_field solr_name("creator", :facetable), limit: 5
     config.add_facet_field solr_name("contributor", :facetable), label: "Contributor", limit: 5
-    config.add_facet_field solr_name("keyword", :facetable), limit: 5
+    config.add_facet_field solr_name("advisor_committee", :facetable), label: "Advisor or Committee", limit: 5
+    config.add_facet_field solr_name("degree_level", :facetable), label: "Degree Level", limit: 5
     config.add_facet_field solr_name("subject", :facetable), limit: 5
+    config.add_facet_field solr_name("publisher", :facetable), limit: 5
+    config.add_facet_field solr_name("file_format", :facetable), label: "File Format", limit: 5
+    config.add_facet_field solr_name("file_type", :facetable), label: "File Type", limit: 5
+    #config.add_facet_field solr_name("graduation_date", :facetable), label: "Graduation Date", limit: 5
+    config.add_facet_field solr_name("keyword", :facetable), limit: 5
     config.add_facet_field solr_name("language", :facetable), limit: 5
     config.add_facet_field solr_name("based_near_label", :facetable), limit: 5
-    config.add_facet_field solr_name("publisher", :facetable), limit: 5
-    config.add_facet_field solr_name("file_format", :facetable), limit: 5
     config.add_facet_field solr_name('member_of_collections', :symbol), limit: 5, label: 'Collections'
 
     # The generic_type isn't displayed on the facet list
@@ -67,42 +71,50 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("title", :stored_searchable), label: "Title", itemprop: 'name', if: false
     config.add_index_field solr_name("description", :stored_searchable), itemprop: 'description', helper_method: :iconify_auto_link
     config.add_index_field solr_name("keyword", :stored_searchable), itemprop: 'keywords', link_to_search: solr_name("keyword", :facetable)
+    config.add_index_field solr_name("resource_type", :stored_searchable), label: "Resource Type", link_to_search: solr_name("resource_type", :facetable)
     config.add_index_field solr_name("subject", :stored_searchable), itemprop: 'about', link_to_search: solr_name("subject", :facetable)
     config.add_index_field solr_name("creator", :stored_searchable), itemprop: 'creator', link_to_search: solr_name("creator", :facetable)
     config.add_index_field solr_name("contributor", :stored_searchable), itemprop: 'contributor', link_to_search: solr_name("contributor", :facetable)
-    config.add_index_field solr_name("proxy_depositor", :symbol), label: "Depositor", helper_method: :link_to_profile
-    config.add_index_field solr_name("depositor"), label: "Owner", helper_method: :link_to_profile
+    config.add_index_field solr_name("advisor_committee", :stored_searchable), itemprop: 'advisor_committee', link_to_search: solr_name("advisor_committee", :facetable), label: "Advisor or Comittee"
+    config.add_index_field solr_name("degree_level", :stored_searchable), itemprop: 'degree_level', link_to_search: solr_name("degree_level", :facetable), label: "Degree Level"
+    config.add_index_field solr_name("graduation_date", :stored_searchable), itemprop: 'graduation_date', label: "Graduation Date"
     config.add_index_field solr_name("publisher", :stored_searchable), itemprop: 'publisher', link_to_search: solr_name("publisher", :facetable)
-    config.add_index_field solr_name("based_near_label", :stored_searchable), itemprop: 'contentLocation', link_to_search: solr_name("based_near_label", :facetable)
+    config.add_index_field solr_name("file_format", :stored_searchable), link_to_search: solr_name("file_format", :facetable)
+    config.add_index_field solr_name("file_type", :stored_searchable), link_to_search: solr_name("file_type", :facetable), label: "File Type"
+    config.add_index_field solr_name("identifier", :stored_searchable), helper_method: :index_field_link, field_name: 'identifier'
     config.add_index_field solr_name("language", :stored_searchable), itemprop: 'inLanguage', link_to_search: solr_name("language", :facetable)
+    config.add_index_field solr_name("rights", :stored_searchable), helper_method: :license_links
+    config.add_index_field solr_name("based_near_label", :stored_searchable), itemprop: 'contentLocation', link_to_search: solr_name("based_near_label", :facetable)
+    config.add_index_field solr_name("embargo_release_date", :stored_sortable, type: :date), label: "Embargo release date", helper_method: :human_readable_date
+    config.add_index_field solr_name("lease_expiration_date", :stored_sortable, type: :date), label: "Lease expiration date", helper_method: :human_readable_date
     config.add_index_field solr_name("date_uploaded", :stored_sortable, type: :date), itemprop: 'datePublished', helper_method: :human_readable_date
     config.add_index_field solr_name("date_modified", :stored_sortable, type: :date), itemprop: 'dateModified', helper_method: :human_readable_date
     config.add_index_field solr_name("date_created", :stored_searchable), itemprop: 'dateCreated'
-    config.add_index_field solr_name("rights", :stored_searchable), helper_method: :license_links
-    config.add_index_field solr_name("resource_type", :stored_searchable), label: "Resource Type", link_to_search: solr_name("resource_type", :facetable)
-    config.add_index_field solr_name("file_format", :stored_searchable), link_to_search: solr_name("file_format", :facetable)
-    config.add_index_field solr_name("identifier", :stored_searchable), helper_method: :index_field_link, field_name: 'identifier'
-    config.add_index_field solr_name("embargo_release_date", :stored_sortable, type: :date), label: "Embargo release date", helper_method: :human_readable_date
-    config.add_index_field solr_name("lease_expiration_date", :stored_sortable, type: :date), label: "Lease expiration date", helper_method: :human_readable_date
+    config.add_index_field solr_name("depositor"), label: "Owner", helper_method: :link_to_profile
+    config.add_index_field solr_name("proxy_depositor", :symbol), label: "Depositor", helper_method: :link_to_profile
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
     config.add_show_field solr_name("title", :stored_searchable)
     config.add_show_field solr_name("description", :stored_searchable)
     config.add_show_field solr_name("keyword", :stored_searchable)
+    config.add_show_field solr_name("resource_type", :stored_searchable), label: "Resource Type"
     config.add_show_field solr_name("subject", :stored_searchable)
     config.add_show_field solr_name("creator", :stored_searchable)
     config.add_show_field solr_name("contributor", :stored_searchable)
+    config.add_show_field solr_name("advisor_committee", :stored_searchable)
+    config.add_show_field solr_name("degree_level", :stored_searchable)
+    config.add_show_field solr_name("graduation_date", :stored_searchable)
     config.add_show_field solr_name("publisher", :stored_searchable)
-    config.add_show_field solr_name("based_near_label", :stored_searchable)
+    config.add_show_field solr_name("file_format", :stored_searchable)
+    config.add_show_field solr_name("file_type", :stored_searchable)
+    config.add_show_field solr_name("identifier", :stored_searchable)
     config.add_show_field solr_name("language", :stored_searchable)
+    config.add_show_field solr_name("rights", :stored_searchable)
+    config.add_show_field solr_name("based_near_label", :stored_searchable)
     config.add_show_field solr_name("date_uploaded", :stored_searchable)
     config.add_show_field solr_name("date_modified", :stored_searchable)
     config.add_show_field solr_name("date_created", :stored_searchable)
-    config.add_show_field solr_name("rights", :stored_searchable)
-    config.add_show_field solr_name("resource_type", :stored_searchable), label: "Resource Type"
-    config.add_show_field solr_name("format", :stored_searchable)
-    config.add_show_field solr_name("identifier", :stored_searchable)
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -214,8 +226,8 @@ class CatalogController < ApplicationController
       }
     end
 
-    config.add_search_field('format') do |field|
-      solr_name = solr_name("format", :stored_searchable)
+    config.add_search_field('file_format') do |field|
+      solr_name = solr_name("file_format", :stored_searchable)
       field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name
